@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости в разных настроениях</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📰 Эмоциональные Новости</h1>
+            <button id="parseBtn" class="btn">Обновить ленту</button>
+        </header>
+
+        <div class="mood-selector">
+            <button data-mood="neutral" class="mood-btn">🧐 Нейтрально</button>
+            <button data-mood="joyful" class="mood-btn">😊 Радостно</button>
+            <button data-mood="sad" class="mood-btn">😢 Грустно</button>
+            <button data-mood="ironic" class="mood-btn">🤡 Иронично</button>
+            
+            <div style="width: 2px; background-color: #4b5563; margin: 0 10px;"></div>
+            
+            <select id="modelSelect" class="mood-btn" style="background-color: #111827; border: 1px solid #4b5563; cursor: pointer;">
+                <option>Загрузка моделей...</option>
+            </select>
+        </div>
+
+        <div id="newsGrid" class="grid"></div>
+    </div>
+
+    <div id="newsModal" class="modal-bg hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <button id="closeModal" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="text-box">
+                    <h3 class="box-title">Исходный текст</h3>
+                    <p id="originalText" class="box-text"></p>
+                    <a id="sourceLink" href="#" target="_blank" class="source-link">Читать в источнике →</a>
+                </div>
+                <div class="text-box">
+                    <h3 id="rewrittenTitle" class="box-title">Переписанный текст</h3>
+                    <div class="box-text">
+                        <p id="rewrittenText"></p>
+                        <div id="loader" class="loader hidden">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
